@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Caso Ejemplo",
+    "category": "Branding",
+    "thumb": "images/caso1.jpg",
+    "summary": "Rediseño de marca para PyME local.",
+    "metrics": {"Alcance": "+120%", "Leads": "+35%"},
+    "testimonial": {
+      "nombre": "Ana Pérez",
+      "rol": "CEO",
+      "quote": "Resultados visibles y atención personalizada."
+    },
+    "gallery": ["images/caso1-1.jpg", "images/caso1-2.jpg"]
+  }
+]

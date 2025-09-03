@@ -1,0 +1,9 @@
+{
+  "aboutText": "Agencia creativa enfocada en resultados y procesos claros. Nuestro equipo combina creatividad y datos para impulsar marcas.",
+  "process": ["Brief", "Estrategia", "Creatividad", "Producción", "Entrega"],
+  "values": ["Creatividad", "Transparencia", "Resultados"],
+  "clientsLogos": ["images/logo1.png", "images/logo2.png"],
+  "testimonials": [
+    {"nombre": "Carlos López", "rol": "CMO", "quote": "Proceso claro y resultados medibles."}
+  ]
+}

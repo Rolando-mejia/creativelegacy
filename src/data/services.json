@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Estrategia",
+    "shortDesc": "Diseño de estrategias creativas para marcas que buscan crecer.",
+    "bullets": ["Análisis de mercado", "Definición de objetivos", "Plan de acción"],
+    "icon": "target"
+  },
+  {
+    "title": "Social Media",
+    "shortDesc": "Gestión y crecimiento de redes sociales para tu marca.",
+    "bullets": ["Calendario de contenidos", "Community management", "Reportes mensuales"],
+    "icon": "instagram"
+  },
+  {
+    "title": "Branding",
+    "shortDesc": "Construcción de identidad visual y narrativa de marca.",
+    "bullets": ["Logo y manual", "Storytelling", "Aplicaciones gráficas"],
+    "icon": "palette"
+  },
+  {
+    "title": "Web",
+    "shortDesc": "Diseño y desarrollo de sitios web modernos y rápidos.",
+    "bullets": ["UX/UI", "SEO básico", "Optimización móvil"],
+    "icon": "globe"
+  },
+  {
+    "title": "Ads",
+    "shortDesc": "Campañas publicitarias en Google, Meta y TikTok.",
+    "bullets": ["Segmentación", "Creatividades", "Optimización"],
+    "icon": "megaphone"
+  },
+  {
+    "title": "Producción",
+    "shortDesc": "Foto, video y contenido audiovisual profesional.",
+    "bullets": ["Sesiones", "Edición", "Entrega digital"],
+    "icon": "camera"
+  }
+]
