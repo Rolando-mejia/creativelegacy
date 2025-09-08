@@ -6,6 +6,64 @@
 @tailwind utilities;
 
 body {
-	font-family: 'Orbitron', Arial, sans-serif;
-	scroll-behavior: smooth;
+  font-family: 'Orbitron', Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Animación personalizada para scroll suave con easing */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Compensar altura del header sticky */
+}
+
+/* Efecto de entrada suave para secciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animación a las secciones cuando entran en vista */
+section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Animación personalizada para links del navbar */
+@keyframes pulse-neon {
+  0%, 100% {
+    box-shadow: 0 0 5px #4fd1ff, 0 0 10px #4fd1ff, 0 0 15px #4fd1ff;
+  }
+  50% {
+    box-shadow: 0 0 10px #4fd1ff, 0 0 20px #4fd1ff, 0 0 30px #4fd1ff;
+  }
+}
+
+/* Animación para elementos del menú móvil */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-link-active {
+  animation: pulse-neon 2s ease-in-out infinite;
+  background: rgba(79, 209, 255, 0.1);
+}
+
+/* Utilidad para truncar texto a 3 líneas */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
