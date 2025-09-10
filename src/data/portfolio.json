@@ -1,15 +1,117 @@
 [
   {
-    "title": "Caso Ejemplo",
-    "category": "Branding",
-    "thumb": "images/caso1.jpg",
-    "summary": "Rediseño de marca para PyME local.",
-    "metrics": {"Alcance": "+120%", "Leads": "+35%"},
-    "testimonial": {
-      "nombre": "Ana Pérez",
-      "rol": "CEO",
-      "quote": "Resultados visibles y atención personalizada."
+    "title": "E-commerce Moderno",
+    "category": "Desarrollo Web",
+    "thumb": "images/hero-slide-1.jpg",
+    "summary": "Plataforma de comercio electrónico con diseño responsive y sistema de pagos integrado. Mejoramos la experiencia de usuario y aumentamos las conversiones significativamente.",
+    "metrics": {
+      "Conversión": "+250%", 
+      "Velocidad": "90/100", 
+      "Usuarios": "+180%", 
+      "ROI": "320%"
     },
-    "gallery": ["images/caso1-1.jpg", "images/caso1-2.jpg"]
+    "testimonial": {
+      "nombre": "Carlos Mendoza",
+      "rol": "CEO TechStore",
+      "quote": "Creative Legacy transformó nuestra visión en una realidad digital que superó todas nuestras expectativas. Las ventas se triplicaron en 3 meses."
+    },
+    "gallery": [
+      "images/hero-slide-2.jpg", 
+      "images/hero-slide-3.jpg", 
+      "images/hero-slide-4.jpg",
+      "images/hero-slide-1.jpg"
+    ]
+  },
+  {
+    "title": "App Mobile Fitness",
+    "category": "Desarrollo Mobile",
+    "thumb": "images/hero-slide-2.jpg",
+    "summary": "Aplicación móvil para seguimiento de entrenamientos con IA integrada, gamificación y comunidad social. Disponible en iOS y Android.",
+    "metrics": {
+      "Descargas": "50K+", 
+      "Rating": "4.8/5", 
+      "Retención": "85%", 
+      "Tiempo": "12 sem"
+    },
+    "testimonial": {
+      "nombre": "María González",
+      "rol": "Fundadora FitLife",
+      "quote": "La app que Creative Legacy desarrolló ha revolucionado cómo nuestros usuarios se conectan con el fitness. La experiencia es increíble."
+    },
+    "gallery": [
+      "images/hero-slide-3.jpg", 
+      "images/hero-slide-4.jpg", 
+      "images/hero-slide-1.jpg",
+      "images/hero-slide-2.jpg"
+    ]
+  },
+  {
+    "title": "Identidad Corporativa Tech",
+    "category": "Branding",
+    "thumb": "images/hero-slide-3.jpg",
+    "summary": "Rediseño completo de identidad visual para startup tecnológica. Desde logo hasta manual de marca, incluyendo papelería y presencia digital.",
+    "metrics": {
+      "Reconocimiento": "+400%", 
+      "Engagement": "+320%", 
+      "Leads": "+180%", 
+      "Satisfacción": "98%"
+    },
+    "testimonial": {
+      "nombre": "Roberto Silva",
+      "rol": "CMO InnovaTech",
+      "quote": "El nuevo branding nos posicionó como líderes en innovación. Creative Legacy entendió perfectamente nuestra visión futurista."
+    },
+    "gallery": [
+      "images/hero-slide-4.jpg", 
+      "images/hero-slide-1.jpg", 
+      "images/hero-slide-2.jpg",
+      "images/hero-slide-3.jpg"
+    ]
+  },
+  {
+    "title": "Portal Educativo",
+    "category": "Desarrollo Web",
+    "thumb": "images/hero-slide-4.jpg",
+    "summary": "Plataforma educativa online con sistema de cursos, evaluaciones automáticas, certificaciones y panel administrativo completo.",
+    "metrics": {
+      "Estudiantes": "15K+", 
+      "Cursos": "200+", 
+      "Satisfacción": "96%", 
+      "Tiempo": "16 sem"
+    },
+    "testimonial": {
+      "nombre": "Dra. Ana Rodríguez",
+      "rol": "Directora EduTech",
+      "quote": "Creative Legacy creó una plataforma que democratizó el acceso a la educación. La usabilidad y funcionalidad son excepcionales."
+    },
+    "gallery": [
+      "images/hero-slide-1.jpg", 
+      "images/hero-slide-2.jpg", 
+      "images/hero-slide-3.jpg",
+      "images/hero-slide-4.jpg"
+    ]
+  },
+  {
+    "title": "Dashboard Analytics",
+    "category": "UI/UX Design",
+    "thumb": "images/logo-creativelegacy2-01.png.png",
+    "summary": "Dashboard intuitivo para análisis de datos empresariales con visualizaciones interactivas, reportes automatizados y alertas en tiempo real.",
+    "metrics": {
+      "Eficiencia": "+300%", 
+      "Precisión": "99.5%", 
+      "Usuarios": "500+", 
+      "Ahorro": "40hrs/sem"
+    },
+    "testimonial": {
+      "nombre": "Luis Herrera",
+      "rol": "CTO DataCorp",
+      "quote": "El dashboard que desarrollaron transformó cómo tomamos decisiones. La interfaz es intuitiva y los insights son invaluables."
+    },
+    "gallery": [
+      "images/hero-slide-2.jpg", 
+      "images/hero-slide-3.jpg", 
+      "images/hero-slide-4.jpg",
+      "images/hero-slide-1.jpg"
+    ]
   }
 ]
