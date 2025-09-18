@@ -1,6 +1,7 @@
 // Sección Hero
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { whatsappConfig } from "../config/emailjs-config";
 
 // Array de imágenes del carrusel
 const carouselImages = [
@@ -66,7 +67,7 @@ export default function Hero() {
           Creatividad que deja huella
         </h1>
         <a
-          href="https://wa.me/521234567890"
+          href={`https://wa.me/${whatsappConfig.phoneNumber}`}
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -2,6 +2,7 @@
 import Logo from "./logo";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import { whatsappConfig } from "../config/emailjs-config";
 
 const navLinks = [
   { name: "Inicio", href: "#hero" },
@@ -110,7 +111,7 @@ export default function Header() {
           {/* Botón WhatsApp - siempre visible */}
           <div className="flex items-center gap-2">
             <a
-              href="https://wa.me/521234567890"
+              href={`https://wa.me/${whatsappConfig.phoneNumber}`}
               target="_blank"
               rel="noopener noreferrer"
             >
