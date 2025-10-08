@@ -1,10 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/images/hero-slide-1.jpg" as="image" type="image/jpeg" />
+    <link rel="preload" href="/images/hero-slide-1-mobile.jpg" as="image" type="image/jpeg" media="(max-width: 767px)" />
+    <link rel="preload" href="/images/hero-slide-1-tablet.jpg" as="image" type="image/jpeg" media="(min-width: 768px) and (max-width: 1023px)" />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//api.whatsapp.com" />
+    
+    <!-- Preconnect to critical domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <title>Creative Legacy - Creatividad que deja huella</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Creamos experiencias digitales excepcionales que impulsan el crecimiento de tu negocio. Desarrollo web, diseño UX/UI y marketing digital." />
+    <meta name="keywords" content="desarrollo web, diseño UX/UI, marketing digital, creative legacy" />
+    <meta name="author" content="Creative Legacy" />
+    
+    <!-- Performance hints -->
+    <meta name="theme-color" content="#4fd1ff" />
+    <meta name="color-scheme" content="dark" />
   </head>
   <body>
     <div id="root"></div>

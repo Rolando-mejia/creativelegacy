@@ -10,6 +10,8 @@ export default function About() {
           src="/images/about-background.jpg.png" 
           alt="Creative Legacy Team Background" 
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
         {/* Overlay oscuro para legibilidad */}
         <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
@@ -32,11 +34,11 @@ export default function About() {
         </div>
       </div>
 
-      {/* Elementos decorativos adicionales */}
+      {/* Elementos decorativos optimizados */}
       <div className="absolute inset-0 pointer-events-none z-5">
-        <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-[#4fd1ff]/10 blur-xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-10 w-48 h-48 rounded-full bg-[#4fd1ff]/5 blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-3/4 left-1/3 w-24 h-24 rounded-full bg-[#4fd1ff]/8 blur-lg animate-pulse" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-[#4fd1ff]/10 blur-xl opacity-60" />
+        <div className="absolute bottom-1/4 right-10 w-48 h-48 rounded-full bg-[#4fd1ff]/5 blur-2xl opacity-40" />
+        <div className="absolute top-3/4 left-1/3 w-24 h-24 rounded-full bg-[#4fd1ff]/8 blur-lg opacity-50" />
       </div>
     </section>
   );

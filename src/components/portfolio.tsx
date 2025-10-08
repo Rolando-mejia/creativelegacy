@@ -153,35 +153,31 @@ export default function Portfolio() {
                 className="relative flex-shrink-0 h-full flex items-center justify-center px-2 md:px-4 lg:px-6"
                 style={{ width: '100vw' }}
               >
-                {/* Background parallax para cada zona */}
+                {/* Background parallax optimizado */}
                 <div 
-                  className={`absolute inset-0 bg-gradient-to-br ${getZoneGradient(index)} opacity-20`}
+                  className={`absolute inset-0 bg-gradient-to-br ${getZoneGradient(index)} opacity-20 will-change-transform`}
                   style={{
-                    transform: `translateX(${getParallaxOffset(index)}px)`,
+                    transform: `translate3d(${getParallaxOffset(index)}px, 0, 0)`,
                   }}
                 />
                 
-                {/* Elementos decorativos con parallax */}
+                {/* Elementos decorativos optimizados */}
                 <div 
-                  className="absolute inset-0 pointer-events-none"
+                  className="absolute inset-0 pointer-events-none will-change-transform"
                   style={{
-                    transform: `translateX(${getParallaxOffset(index) * 0.3}px)`,
+                    transform: `translate3d(${getParallaxOffset(index) * 0.3}px, 0, 0)`,
                   }}
                 >
                   <div className="w-full h-full relative">
-                    <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-[#4fd1ff]/10 blur-xl animate-pulse" />
-                    <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-[#4fd1ff]/5 blur-2xl animate-pulse" 
-                         style={{ animationDelay: '1s' }} />
+                    <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-[#4fd1ff]/10 blur-xl opacity-60" />
+                    <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-[#4fd1ff]/5 blur-2xl opacity-60" />
                   </div>
                 </div>
 
                 {/* Card del proyecto */}
                 <div className="relative z-10 w-full h-full flex items-center justify-center px-1 md:px-2 lg:px-4">
                   <div 
-                    className="bg-black/90 border-2 border-[#4fd1ff] rounded-2xl md:rounded-3xl shadow-[0_0_40px_#4fd1ff] p-4 md:p-6 lg:p-8 backdrop-blur-sm group hover:shadow-[0_0_60px_#4fd1ff] transition-all duration-500 hover:scale-[1.02] w-full max-w-[98vw] md:max-w-[95vw] lg:max-w-[92vw] h-[95%] md:h-[90%] lg:h-[88%]"
-                    style={{
-                      transform: `translateY(${Math.sin((scrollX / projectWidth + index) * 0.5) * 8}px)`,
-                    }}
+                    className="bg-black/90 border-2 border-[#4fd1ff] rounded-2xl md:rounded-3xl shadow-[0_0_40px_#4fd1ff] p-4 md:p-6 lg:p-8 backdrop-blur-sm group hover:shadow-[0_0_60px_#4fd1ff] transition-all duration-500 hover:scale-[1.02] w-full max-w-[98vw] md:max-w-[95vw] lg:max-w-[92vw] h-[95%] md:h-[90%] lg:h-[88%] will-change-transform"
                   >
                     {/* Mobile: Layout vertical, Tablet+: Layout horizontal */}
                     <div className="flex flex-col lg:grid lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 items-center h-full">
@@ -192,6 +188,8 @@ export default function Portfolio() {
                             src={`/${item.thumb}`} 
                             alt={item.title} 
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            loading={index === 0 ? "eager" : "lazy"}
+                            decoding="async"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                           
@@ -220,7 +218,9 @@ export default function Portfolio() {
                               key={i} 
                               src={`/${img}`} 
                               alt={`Galería ${i + 1}`} 
-                              className="w-10 md:w-12 lg:w-14 h-10 md:h-12 lg:h-14 object-cover rounded-lg border border-[#4fd1ff] shadow-[0_0_15px_#4fd1ff] hover:scale-110 transition-transform duration-200 cursor-pointer" 
+                              className="w-10 md:w-12 lg:w-14 h-10 md:h-12 lg:h-14 object-cover rounded-lg border border-[#4fd1ff] shadow-[0_0_15px_#4fd1ff] hover:scale-110 transition-transform duration-200 cursor-pointer"
+                              loading="lazy"
+                              decoding="async"
                             />
                           ))}
                         </div>

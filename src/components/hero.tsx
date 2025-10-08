@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { whatsappConfig } from "../config/emailjs-config";
 
-// Array de imágenes del carrusel
+// Array de imágenes del carrusel con lazy loading
 const carouselImages = [
   "/images/hero-slide-1.jpg",
   "/images/hero-slide-2.jpg", 
@@ -13,6 +13,65 @@ const carouselImages = [
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadedImages, setLoadedImages] = useState(new Set<number>());
+
+  // Precargar la primera imagen inmediatamente y las demás progresivamente
+  useEffect(() => {
+    const preloadImage = (index: number) => {
+      if (loadedImages.has(index)) return;
+      
+      const image = carouselImages[index];
+      const promises = [
+        new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = image;
+        }),
+        new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = image.replace('.jpg', '-tablet.jpg');
+        }),
+        new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = image.replace('.jpg', '-mobile.jpg');
+        })
+      ];
+
+      Promise.all(promises).then(() => {
+        setLoadedImages(prev => new Set([...prev, index]));
+      });
+    };
+
+    // Precargar primera imagen inmediatamente
+    preloadImage(0);
+    
+    // Precargar siguiente imagen después de un pequeño delay
+    const timer = setTimeout(() => {
+      preloadImage(1);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Precargar la siguiente imagen cuando cambia el slide actual
+  useEffect(() => {
+    const nextIndex = (currentSlide + 1) % carouselImages.length;
+    const timer = setTimeout(() => {
+      if (!loadedImages.has(nextIndex)) {
+        const image = carouselImages[nextIndex];
+        const img = new Image();
+        img.onload = () => setLoadedImages(prev => new Set([...prev, nextIndex]));
+        img.src = image;
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [currentSlide, loadedImages]);
 
   // Cambio automático cada 5 segundos
   useEffect(() => {
@@ -28,7 +87,7 @@ export default function Hero() {
       id="hero"
       className="relative flex flex-col items-center justify-center min-h-[80vh] bg-black text-white overflow-hidden"
     >
-      {/* Carrusel de imágenes de fondo */}
+      {/* Carrusel de imágenes de fondo optimizado */}
       <div className="absolute inset-0">
         {carouselImages.map((image, index) => (
           <div
@@ -37,24 +96,39 @@ export default function Hero() {
               index === currentSlide ? "opacity-70" : "opacity-0"
             }`}
           >
-            {/* Imagen para desktop (1024px+) */}
-            <img
-              src={image}
-              alt={`Slide ${index + 1}`}
-              className="hidden lg:block w-full h-full object-cover"
-            />
-            {/* Imagen para tablet (768px-1023px) */}
-            <img
-              src={image.replace('.jpg', '-tablet.jpg')}
-              alt={`Slide ${index + 1} tablet`}
-              className="hidden md:block lg:hidden w-full h-full object-cover object-center"
-            />
-            {/* Imagen para móvil (hasta 767px) */}
-            <img
-              src={image.replace('.jpg', '-mobile.jpg')}
-              alt={`Slide ${index + 1} móvil`}
-              className="block md:hidden w-full h-full object-cover object-center"
-            />
+            {/* Solo renderizar imágenes que están cargadas o son la actual */}
+            {(loadedImages.has(index) || index === currentSlide) && (
+              <>
+                {/* Imagen para desktop (1024px+) */}
+                <img
+                  src={image}
+                  alt={`Slide ${index + 1}`}
+                  className="hidden lg:block w-full h-full object-cover"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+                {/* Imagen para tablet (768px-1023px) */}
+                <img
+                  src={image.replace('.jpg', '-tablet.jpg')}
+                  alt={`Slide ${index + 1} tablet`}
+                  className="hidden md:block lg:hidden w-full h-full object-cover object-center"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+                {/* Imagen para móvil (hasta 767px) */}
+                <img
+                  src={image.replace('.jpg', '-mobile.jpg')}
+                  alt={`Slide ${index + 1} móvil`}
+                  className="block md:hidden w-full h-full object-cover object-center"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </>
+            )}
+            {/* Placeholder para imágenes no cargadas */}
+            {!loadedImages.has(index) && index !== currentSlide && (
+              <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black animate-pulse" />
+            )}
             {/* Overlay oscuro adaptativo */}
             <div className="absolute inset-0 bg-black/60 md:bg-black/55 lg:bg-black/50"></div>
           </div>
@@ -95,9 +169,9 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Efecto de fondo animado neon */}
+      {/* Efecto de fondo neon optimizado */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-        <div className="w-[600px] h-[600px] rounded-full bg-[#4fd1ff]/10 blur-3xl animate-pulse" />
+        <div className="w-[600px] h-[600px] rounded-full bg-[#4fd1ff]/10 blur-3xl opacity-50" />
       </div>
     </section>
   );
